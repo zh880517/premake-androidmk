@@ -215,14 +215,20 @@ function androidmk.prjCFlags(prj, cfg)
   end
 
   -- Warnings
-  for _, enable in ipairs(cfg.enablewarnings) do
-    table.insert(flags, '-W' .. enable)
+  if cfg.enablewarnings then 
+    for _, enable in ipairs(cfg.enablewarnings) do
+      table.insert(flags, '-W' .. enable)
+    end
   end
-  for _, disable in ipairs(cfg.disablewarnings) do
-    table.insert(flags, '-Wno-' .. disable)
+  if cfg.disablewarnings then 
+    for _, disable in ipairs(cfg.disablewarnings) do
+      table.insert(flags, '-Wno-' .. disable)
+    end
   end
-  for _, fatal in ipairs(cfg.fatalwarnings) do
-    table.insert(flags, '-Werror=' .. fatal)
+  if cfg.fatalwarnings then 
+    for _, fatal in ipairs(cfg.fatalwarnings) do
+      table.insert(flags, '-Werror=' .. fatal)
+    end
   end
 
   -- Build options
