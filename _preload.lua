@@ -26,13 +26,13 @@ newaction {
 
 
   onSolution = function(sln)
-    premake.escaper(make.esc)
+    --premake.escaper(make.esc)
     premake.generate(sln, androidmk.slnApplicationFile(sln), androidmk.generate_applicationmk)
     premake.generate(sln, androidmk.slnAndroidFile(sln), androidmk.generate_androidmk)
   end,
 
   onProject = function(prj)
-    premake.escaper(make.esc)
+    --premake.escaper(make.esc)
     premake.generate(prj, androidmk.prjFile(prj), androidmk.generate_projectmk)
   end,
 
